@@ -1,1 +1,11 @@
-task 3
+import requests
+from bs4 import BeautifulSoup
+url="https://www.bbc.com"
+response=requests.get(url)
+print("The response is:",response)
+soup=BeautifulSoup(response.content,'html.parser')
+headlines=soup.find_all('h2')
+for headline in headlines:
+	print(headline.text,"\n")
+	
+	
